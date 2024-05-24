@@ -4,7 +4,9 @@ import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
 
+import JotaiProvider from "@/layout/JotaiProvider";
 import ReactQueryProvider from "@/layout/ReactQueryProvider";
+
 import Bible from "@/type/Bible";
 
 import "@/app/globals.css";
@@ -19,9 +21,11 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<Bible.Layout> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
-      </body>
+      <JotaiProvider>
+        <body className={inter.className}>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </body>
+      </JotaiProvider>
     </html>
   );
 };
